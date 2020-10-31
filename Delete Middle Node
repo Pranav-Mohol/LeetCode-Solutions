@@ -1,0 +1,17 @@
+struct Node* deleteMid(struct Node* head) 
+{ 
+    if (head == NULL) 
+        return NULL; 
+    if (head->next == NULL) { 
+        delete head; 
+        return NULL; 
+    } 
+    struct Node* copyHead = head; 
+    int count = countOfNodes(head); 
+    int mid = count / 2; 
+     while (mid-- > 1) { 
+        head = head->next; 
+    } 
+    head->next = head->next->next; 
+    return copyHead; 
+} 
